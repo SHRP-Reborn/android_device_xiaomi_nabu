@@ -53,7 +53,7 @@ PRODUCT_USE_DYNAMIC_PARTITIONS := true
 # Recovery
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
-TARGET_RECOVERY_DEVICE_MODULES += libion libandroidicu vendor.qti.hardware.vibrator.service vendor.qti.hardware.vibrator.impl libqtivibratoreffect
+TARGET_RECOVERY_DEVICE_MODULES += libion libandroidicu
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
@@ -160,13 +160,11 @@ SHRP_EXPRESS := true
 SHRP_EXPRESS_USE_DATA := true
 SHRP_AB := true
 
-# Vibrator
-TW_SUPPORT_INPUT_AIDL_HAPTICS := true
-
-RECOVERY_BINARY_SOURCE_FILES += \
-    $(TARGET_OUT_VENDOR_EXECUTABLES)/hw/vendor.qti.hardware.vibrator.service
+# SHRP Addons
+SHRP_SKIP_DEFAULT_ADDON_1 := true
+SHRP_SKIP_DEFAULT_ADDON_2 := true
+SHRP_SKIP_DEFAULT_ADDON_3 := true
+SHRP_SKIP_DEFAULT_ADDON_4 := true
 
 RECOVERY_LIBRARY_SOURCE_FILES += \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
-    $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/vendor.qti.hardware.vibrator.impl.so \
-    $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/libqtivibratoreffect.so
+    $(TARGET_OUT_SHARED_LIBRARIES)/libion.so 
